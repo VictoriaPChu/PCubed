@@ -38,7 +38,7 @@
     "react-bootstrap": "~0.11.0",
     "reactify": "0.14.1",
     "backbone": "~1.1.2",
-    "jquery": "~2.1.1",
+    "jquery": "~3.4.0",
     "browser-request": "~0.3.2",
     "marked": "~0.3.2",
     "browserify": "~7.0.0",
