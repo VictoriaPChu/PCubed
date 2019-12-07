@@ -52,3 +52,10 @@ Module management and bundling.
 #### backbone.js
 
 Url routing and history (not used to its fullest potential)
+
+
+
+## Deployment to server:
+
+gcloud app deploy ./server  --project=ccc-x-volvo --version=v1
+
