@@ -1,24 +1,42 @@
-import React from "react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+
+import Project from './Project.js';
+import Recommendations from './Recommendations.js';
 
 
+function App() {
+  return (
+    <div className="App">
+      <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"></Link>
+            </li>
+            <li>
+              <Link to="/recommendations"></Link>
+            </li>
+          </ul>
+        </nav>
 
-export default class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {people: [], safe_areas: [], not_safe_areas: [], responders: [], extra: []};
-	}
-
-	render() {
-	return (
-		<div >
-				<h1 style={{ paddingTop: "2em", textAlign: "center", color: "red" }}> P Cubed</h1>
-				<div style={{ paddingTop: "-2em", margin: "5em", width: "85vw", height: "50vh" }}>
-					
-				</div>
-
-
-		</div>
-		
-	);
-}
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/recommendations">
+            <Recommendations />
+          </Route>
+          <Route path="/">
+            <Project />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+      
+     
+    </div>
+  );
 }
