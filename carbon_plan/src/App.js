@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Chart from './components/Chart';
+import Project from './Project.js';
+import Recommendations from './Recommendations.js';
 
 class App extends Component {
   constructor(){
@@ -10,6 +14,7 @@ class App extends Component {
       chartData:{}
     }
   }
+
 
   componentWillMount(){
     this.getChartData();
@@ -77,10 +82,36 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
+        <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"></Link>
+            </li>
+            <li>
+              <Link to="/recommendations"></Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/recommendations">
+            <Recommendations />
+          </Route>
+          <Route path="/">
+            <Project />
+          </Route>
+          <Route path="/chart">
+            <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
       </div>
     );
-  }
 }
 
 export default App;
