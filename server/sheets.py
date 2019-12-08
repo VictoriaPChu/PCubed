@@ -5,6 +5,10 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2 import service_account 
+import os
+
+import cloudstorage
+from google.appengine.api import app_identity
 
 
 # If modifying these scopes, delete the file token.pickle.
@@ -23,6 +27,18 @@ def get_data(_SAMPLE_RANGE_NAME=""):
     # created automatically when the authorization flow completes for the first
     # time.
     
+
+
+    # bucket_name = os.environ.get(
+    #             'BUCKET_NAME', app_identity.get_default_gcs_bucket_name())
+    # bucket = '/' + bucket_name
+    # filename = bucket + '/cccxvolvo-8f7aecf9b17f.json'
+
+
+    # with cloudstorage.open(filename) as cloudstorage_file:
+    #         creds =  (cloudstorage_file.read())
+    #         cloudstorage_file.seek(-1024, os.SEEK_END)
+
     creds = service_account.Credentials.from_service_account_file('CCCxVolvo_270aa57a2e4d.json')
 
     # if os.path.exists('token.pickle'):
