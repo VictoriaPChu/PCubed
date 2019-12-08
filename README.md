@@ -8,6 +8,11 @@ A starter app that servers a single page app made in React.js with urls from bac
 https://cloud.google.com/sdk/install
 pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib -t server/lib
 
+
+##API
+/api/<sheet name>!<sheet range>
+/api/Tasks!A:F
+
 Dependencies
   1. node/npm
   2. python 2.7
