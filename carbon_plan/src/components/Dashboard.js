@@ -11,7 +11,7 @@ import {
   chartOptions,
   parseOptions,
   chartExample1
-} from "variables/charts.jsx";
+} from "../variables/charts.jsx";
 
 class Dashboard extends React.Component {
   componentWillMount() {
