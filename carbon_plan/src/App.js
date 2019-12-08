@@ -1,24 +1,116 @@
-import React from "react";
+import React, { Component } from 'react';
+import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+import Chart from './components/Chart';
+import Project from './components/Project.js';
+import Recommendations from './components/Recommendations.js';
 
+export default class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      chartData:{}
+    }
+  }
 
+  componentWillMount(){
+    this.getChartData();
+  }
 
-export default class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {people: [], safe_areas: [], not_safe_areas: [], responders: [], extra: []};
-	}
+  getChartData(){
+    // Ajax calls here
+    this.setState({
+      chartData:{
+        labels: ['Phase 1', 'Phase 2', 'Phase 3', 'Phase 4'],
+        datasets:[
+          {
+            label:'Real-Time Carbon Emissions',
+            data:[
+              6174,
+              181045,
+              153060,
+              106519,
+              105162,
+              95072
+            ],
+			borderColor:'#00F',
+            backgroundColor:[
+              'rgba(255, 206, 86, 0.6)',
+			],
+			fill:false
+		  },
+		  {
+            label:'Prospective Carbon Emissions',
+            data:[
+              7594,
+              1245,
+              133060,
+              146519,
+              155162,
+              96072
+			],
+			borderColor:'#0F0F',
+            backgroundColor:[
+              'rgba(2, 99, 132, 0.6)'
+			],
+			fill:false
+          },
+		  {
+            label:'Carbon Emission caps',
+            data:[
+			  160000,
+			  160000,
+			  160000,
+			  160000,
+			  160000,
+			  160000              
+            ],
+			borderColor:'#F00F',
+			backgroundColor: [
+              'rgba(75, 192, 192, 0.6)',
+			],
+			fill:false
+          }
+        ]
+      }
+    });
+  }
 
-	render() {
-	return (
-		<div >
-				<h1 style={{ paddingTop: "2em", textAlign: "center", color: "red" }}> P Cubed</h1>
-				<div style={{ paddingTop: "-2em", margin: "5em", width: "85vw", height: "50vh" }}>
-					
-				</div>
+  render() {
+    return (
+        <div className="App">
+        <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"></Link>
+            </li>
+            <li>
+              <Link to="/recommendations"></Link>
+            </li>
+          </ul>
+        </nav>
 
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/recommendations">
+            <Recommendations />
+          </Route>
+          <Route path="/chart">
+            <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
+          </Route>
+          <Route path="/">
+            <Project />
+          </Route>
+          
+        </Switch>
+      </div>
+    </Router>
+      </div>
+    )
+  }
 
-		</div>
-		
-	);
 }
-}
+

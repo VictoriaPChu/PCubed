@@ -11,17 +11,23 @@ import {
   chartOptions,
   parseOptions,
   chartExample1
-} from "variables/charts.jsx";
+} from "../variables/charts.jsx";
 
 class Dashboard extends React.Component {
   componentWillMount() {
+    console.log(JSON.stringify(chartExample1.data1))
+    //const response =  fetch('https://ccc-x-volvo.appspot.com/api/Tasks!A:F');
+    //console.log(response);
     if (window.Chart) {
       parseOptions(Chart, chartOptions());
     }
   }
+    
+  
   render() {
     return (
       <>
+      <button></button>
         <Card className="bg-default">
           <CardBody>
             <div className="chart">
