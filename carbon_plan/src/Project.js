@@ -22,9 +22,6 @@ function Project() {
       </form>
 
     </div>
-
-
-
   );
 
 }
