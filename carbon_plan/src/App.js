@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Chart from './components/Chart';
-import Project from './Project.js';
-import Recommendations from './Recommendations.js';
+import Project from './components/Project.js';
+import Recommendations from './components/Recommendations.js';
 
 export default class App extends Component {
   constructor(){
@@ -41,7 +40,7 @@ export default class App extends Component {
 			fill:false
 		  },
 		  {
-            label:'Prospected Carbon Emissions',
+            label:'Prospective Carbon Emissions',
             data:[
               7594,
               1245,
@@ -99,12 +98,13 @@ export default class App extends Component {
           <Route path="/recommendations">
             <Recommendations />
           </Route>
-          <Route path="/">
-            <Project />
-          </Route>
           <Route path="/chart">
             <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
           </Route>
+          <Route path="/">
+            <Project />
+          </Route>
+          
         </Switch>
       </div>
     </Router>
