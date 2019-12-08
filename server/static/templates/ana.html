@@ -1,7 +1,7 @@
 <div ng-controller="AppCtrl" ng-cloak>
   <md-content class="md-padding">
-    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-swipe-content>
-      <md-tab  ng-repeat="tab in tabs"
+    <md-tabs flex   layout-fill md-selected="selectedIndex" md-border-bottom md-autoselect md-swipe-content>
+      <md-tab flex  layout-fill ng-repeat="tab in tabs"
               
               label="{{tab.title}}">
         <div class="demo-tab tab{{$index%4}}">
@@ -19,6 +19,7 @@
              
             </md-nav-bar>
            
+           <div><div id="curve_chart" flex=100></div></div>
           <fieldset class="standard">
             <legend>Recommendations</legend>
             <div layout="column"  layout-align="start stretch">
