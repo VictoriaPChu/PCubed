@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Chart from './components/Chart';
 import Project from './Project.js';
 import Recommendations from './Recommendations.js';
 
-class App extends Component {
+export default class App extends Component {
   constructor(){
     super();
     this.state = {
       chartData:{}
     }
   }
-
 
   componentWillMount(){
     this.getChartData();
@@ -81,7 +79,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+        <div className="App">
         <Router>
       <div>
         <nav>
@@ -111,7 +109,8 @@ class App extends Component {
       </div>
     </Router>
       </div>
-    );
+    )
+  }
+
 }
 
-export default App;
